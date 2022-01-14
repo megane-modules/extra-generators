@@ -1,0 +1,11 @@
+dependencies {
+    modImplementation meganeModule("api:7.0.0")
+    modRuntimeOnly meganeModule("runtime:7.0.0")
+    modRuntimeOnly meganeModule("vanilla:7.0.0")
+
+    modImplementation "curse.maven:extra-generators-475623:3544998"
+
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.43.1+1.18"
+    modImplementation "net.fabricmc:fabric-language-kotlin:1.6.0+kotlin.1.5.0"
+    modImplementation "teamreborn:energy:2.0.0-beta1"
+}
