@@ -5,9 +5,6 @@ import java.util.function.Function;
 import io.github.lucaargolo.extragenerators.common.blockentity.AbstractGeneratorBlockEntity;
 import io.github.lucaargolo.extragenerators.utils.FluidGeneratorFuel;
 import io.github.lucaargolo.extragenerators.utils.SimpleSidedInventory;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 @SuppressWarnings("rawtypes")
 public class FluidGeneratorProgressProvider<T extends AbstractGeneratorBlockEntity> extends AbstractGeneratorProgressProvider<T> {
@@ -21,10 +18,9 @@ public class FluidGeneratorProgressProvider<T extends AbstractGeneratorBlockEnti
     }
 
     @Override
-    public void setContext(World world, BlockPos pos, PlayerEntity player, T t) {
-        super.setContext(world, pos, player, t);
-
-        this.fuel = fuelGetter.apply(t);
+    protected void init() {
+        super.init();
+        this.fuel = fuelGetter.apply(getObject());
     }
 
     @Override

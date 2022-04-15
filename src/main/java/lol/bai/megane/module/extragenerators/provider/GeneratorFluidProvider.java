@@ -4,13 +4,10 @@ import java.util.function.Function;
 
 import io.github.lucaargolo.extragenerators.common.blockentity.AbstractGeneratorBlockEntity;
 import lol.bai.megane.api.provider.FluidProvider;
-import org.jetbrains.annotations.Nullable;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.base.SingleVariantStorage;
+import net.minecraft.fluid.Fluid;
+import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings({"rawtypes", "UnstableApiUsage"})
 public class GeneratorFluidProvider<T extends AbstractGeneratorBlockEntity> extends FluidProvider<T> {
@@ -23,10 +20,8 @@ public class GeneratorFluidProvider<T extends AbstractGeneratorBlockEntity> exte
     }
 
     @Override
-    public void setContext(World world, BlockPos pos, PlayerEntity player, T t) {
-        super.setContext(world, pos, player, t);
-
-        this.storage = storageGetter.apply(t);
+    protected void init() {
+        this.storage = storageGetter.apply(getObject());
     }
 
     @Override

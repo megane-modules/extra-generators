@@ -5,10 +5,7 @@ import java.util.function.Function;
 import io.github.lucaargolo.extragenerators.common.blockentity.AbstractGeneratorBlockEntity;
 import io.github.lucaargolo.extragenerators.utils.SimpleSidedInventory;
 import lol.bai.megane.api.provider.base.SlotArrayProgressProvider;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("rawtypes")
@@ -30,10 +27,8 @@ public abstract class AbstractGeneratorProgressProvider<T extends AbstractGenera
     abstract protected int getBurnTime();
 
     @Override
-    public void setContext(World world, BlockPos pos, PlayerEntity player, T t) {
-        super.setContext(world, pos, player, t);
-
-        this.inventory = inventoryGetter.apply(t);
+    protected void init() {
+        this.inventory = inventoryGetter.apply(getObject());
     }
 
     @Override

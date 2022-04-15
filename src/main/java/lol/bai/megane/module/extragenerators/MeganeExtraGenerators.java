@@ -13,7 +13,7 @@ import lol.bai.megane.module.extragenerators.provider.GeneratorFluidProvider;
 import lol.bai.megane.module.extragenerators.provider.GeneratorItemProvider;
 import lol.bai.megane.module.extragenerators.provider.GeneratorProgressProvider;
 
-@SuppressWarnings("UnstableApiUsage")
+@SuppressWarnings({"UnstableApiUsage", "unused"})
 public class MeganeExtraGenerators implements MeganeModule {
 
     @Override
